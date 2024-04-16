@@ -10,9 +10,9 @@ EXPOSE 6001
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["TestApi.csproj", "TestApi/"]
+COPY ["TestApi.csproj", "./TestApi/"]
 RUN dotnet restore "./TestApi/TestApi.csproj"
-COPY . .
+COPY . ./TestApi/
 RUN ls
 WORKDIR "/src/TestApi"
 RUN ls
